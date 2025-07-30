@@ -7,7 +7,10 @@ import { styled } from "@mui/material/styles";
 import { breakpoint, mixinFlex } from "@/styles/mixins";
 import Image from "next/image";
 
-const CommonFlipEffectSwiper = () => {
+type PropsType = {
+  images: string[];
+}
+const CommonFlipEffectSwiper = ({ images }: PropsType) => {
   return (
     <Container
       effect={"flip"}
@@ -23,15 +26,11 @@ const CommonFlipEffectSwiper = () => {
         disableOnInteraction: false,
       }}
     >
-      <SwiperItem>
-        <SwiperItemImage src="/img/swiper/swiper1.png" alt="Slide 1" fill />
-      </SwiperItem>
-      <SwiperItem>
-        <SwiperItemImage src="/img/swiper/swiper2.png" alt="Slide 2" fill />
-      </SwiperItem>
-      <SwiperItem>
-        <SwiperItemImage src="/img/swiper/swiper3.png" alt="Slide 3" fill />
-      </SwiperItem>
+      {images.map((image, index) => (
+        <SwiperItem key={index}>
+          <SwiperItemImage src={image} alt={`swiper-${index}`} fill />
+        </SwiperItem>
+      ))}
     </Container>
   );
 };
