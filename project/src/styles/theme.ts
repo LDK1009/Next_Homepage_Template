@@ -65,51 +65,46 @@ declare module "@mui/material/styles" {
 // 서비스에 어울리는 색상 팔레트
 export const muiTheme = createTheme({
   typography: {
-    fontFamily: [
-      '"Pretendard-Regular"',
-      '"Malgun Gothic"',
-      '"Apple SD Gothic Neo"',
-      'sans-serif',
-    ].join(','),
+    fontFamily: ['"Pretendard-Regular"', '"Malgun Gothic"', '"Apple SD Gothic Neo"', "sans-serif"].join(","),
     // 폰트 사이즈별 설정
     h1: {
       fontFamily: '"Pretendard-Regular", sans-serif',
-      fontSize: '2.5rem',
-      fontWeight: 'bold',
+      fontSize: "2.5rem",
+      fontWeight: "bold",
     },
     h2: {
       fontFamily: '"Pretendard-Regular", sans-serif',
-      fontSize: '2rem',
-      fontWeight: 'bold',
+      fontSize: "2rem",
+      fontWeight: "bold",
     },
     h3: {
       fontFamily: '"Pretendard-Regular", sans-serif',
-      fontSize: '1.75rem',
-      fontWeight: 'bold',
+      fontSize: "1.75rem",
+      fontWeight: "bold",
     },
     h4: {
       fontFamily: '"Pretendard-Regular", sans-serif',
-      fontSize: '1.5rem',
+      fontSize: "1.5rem",
       fontWeight: 600,
     },
     h5: {
       fontFamily: '"Pretendard-Regular", sans-serif',
-      fontSize: '1.25rem',
+      fontSize: "1.25rem",
       fontWeight: 600,
     },
     h6: {
       fontFamily: '"Pretendard-Regular", sans-serif',
-      fontSize: '1rem',
+      fontSize: "1rem",
       fontWeight: 600,
     },
     body1: {
       fontFamily: '"Pretendard-Regular", sans-serif',
-      fontSize: '1rem',
+      fontSize: "1rem",
       lineHeight: 1.6,
     },
     body2: {
       fontFamily: '"Pretendard-Regular", sans-serif',
-      fontSize: '0.875rem',
+      fontSize: "0.875rem",
       lineHeight: 1.5,
     },
     button: {
@@ -118,22 +113,19 @@ export const muiTheme = createTheme({
     },
     caption: {
       fontFamily: '"Pretendard-Regular", sans-serif',
-      fontSize: '0.75rem',
+      fontSize: "0.75rem",
     },
   },
   palette: {
     primary: {
-      dark: "#222222",
-      main: "#444444",
-      light: "#666666",
-      contrastText: "#FFFFFF",
+      dark: "#1565C0", // 딥 블루
+      main: "#0A84FF", // 대표 앱블루 (iOS/인스타/페이스북 공통)
+      light: "#90CAF9", // 연한 블루
     },
-
     secondary: {
-      dark: "#0000FF",
-      main: "#2222FF",
-      light: "#4444FF",
-      contrastText: "#FFFFFF",
+      dark: "#FF4081", // 선명한 핑크 (Z세대 감성)
+      main: "#FF80AB", // 캔디 핑크
+      light: "#F8BBD0", // 파스텔 핑크
     },
 
     secondaryVariable: {
@@ -195,10 +187,9 @@ export const muiTheme = createTheme({
       600: "#222222",
       700: "#000000",
     },
-
     background: {
-      default: "#FFFFFF",
-      paper: "#666666",
+      default: "#F9FAFB", // 모던 연회색 배경
+      paper: "#FFFFFF", // 카드/컴포넌트 배경
       0: "#ffffff",
       100: "#CCCCCC",
       200: "#AAAAAA",
