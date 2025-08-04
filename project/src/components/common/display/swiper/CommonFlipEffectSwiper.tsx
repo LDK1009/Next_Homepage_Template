@@ -1,68 +1,78 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFlip } from "swiper/modules";
+import { EffectFlip, Autoplay } from "swiper/modules";
+
+// Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-flip";
-import { styled } from "@mui/material/styles";
+
+import { styled } from "@mui/material";
 import { breakpoint, mixinFlex } from "@/styles/mixins";
-import Image from "next/image";
+import { shouldForwardProp } from "@/utils/mui";
 
 type PropsType = {
-  images: string[];
+  children: React.ReactNode;
+  spaceBetween?: number;
+  slidesPerView?: number;
+  loop?: boolean;
+  autoplay?: boolean;
+  autoplayDelay?: number;
+  rounded?: boolean;
 }
-const CommonFlipEffectSwiper = ({ images }: PropsType) => {
+
+const CommonFlipEffectSwiper = ({ 
+  children, 
+  spaceBetween = 30, 
+  slidesPerView = 1, 
+  loop = true, 
+  autoplay = true, 
+  autoplayDelay = 2000,
+  rounded = false
+}: PropsType) => {
   return (
     <Container
-      effect={"flip"}
-      grabCursor={true}
-      flipEffect={{
-        slideShadows: true,
-        limitRotation: true,
-      }}
       modules={[EffectFlip, Autoplay]}
-      loop={true}
-      autoplay={{
-        delay: 2000,
+      spaceBetween={spaceBetween}
+      slidesPerView={slidesPerView}
+      effect="flip"
+      loop={loop}
+      autoplay={autoplay ? {
+        delay: autoplayDelay,
         disableOnInteraction: false,
-      }}
+      } : false}
+      $rounded={rounded}
     >
-      {images.map((image, index) => (
-        <SwiperItem key={index}>
-          <SwiperItemImage src={image} alt={`swiper-${index}`} fill />
-        </SwiperItem>
-      ))}
+      {children}
     </Container>
   );
 };
 
 export default CommonFlipEffectSwiper;
 
-const Container = styled(Swiper)`
+type ContainerPropsType = {
+  $rounded?: boolean;
+}
+
+const Container = styled(Swiper, {shouldForwardProp})<ContainerPropsType>`
   width: 100%;
   height: auto;
   aspect-ratio: 7/5;
   overflow: hidden;
   cursor: grab;
-
+  
   /* ~ 모바일 */
   @media (min-width: 0px) and (max-width: ${breakpoint.mobile}px) {
-    border-radius: 16px;
+    border-radius: ${({ $rounded }) => ($rounded ? "16px" : "0")};
   }
   /* ~ 데스크톱 */
   @media (min-width: ${breakpoint.desktop}px) {
-    border-radius: 32px;
+    border-radius: ${({ $rounded }) => ($rounded ? "32px" : "0")};
   }
 `;
 
-const SwiperItem = styled(SwiperSlide)`
+export const SwiperItem = styled(SwiperSlide)`
   position: relative;
   ${mixinFlex("column", "center", "center")}
   width: 100%;
   height: 100%;
-`;
-
-const SwiperItemImage = styled(Image)`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 `; 

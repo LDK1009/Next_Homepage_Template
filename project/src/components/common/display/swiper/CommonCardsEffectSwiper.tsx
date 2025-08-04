@@ -1,45 +1,59 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectCards } from "swiper/modules";
+import { EffectCards, Autoplay } from "swiper/modules";
+
+// Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-cards";
-import { styled } from "@mui/material/styles";
+
+import { styled } from "@mui/material";
 import { breakpoint, mixinFlex } from "@/styles/mixins";
-import Image from "next/image";
+import { shouldForwardProp } from "@/utils/mui";
 
 type PropsType = {
-  images: string[];
-}
-const CommonCardsEffectSwiper = ({ images }: PropsType) => {
+  children: React.ReactNode;
+  spaceBetween?: number;
+  slidesPerView?: number;
+  loop?: boolean;
+  autoplay?: boolean;
+  autoplayDelay?: number;
+  rounded?: boolean;
+};
+
+const CommonCardsEffectSwiper = ({
+  children,
+  spaceBetween = 30,
+  slidesPerView = 1,
+  loop = true,
+  autoplay = true,
+  autoplayDelay = 2000,
+  rounded = false,
+}: PropsType) => {
   return (
     <Container
-      effect={"cards"}
-      grabCursor={true}
-      cardsEffect={{
-        perSlideOffset: 8,
-        perSlideRotate: 2,
-        rotate: true,
-        slideShadows: true,
-      }}
       modules={[EffectCards, Autoplay]}
-      loop={true}
-      autoplay={{
-        delay: 2000,
+      spaceBetween={spaceBetween}
+      slidesPerView={slidesPerView}
+      effect="cards"
+      loop={loop}
+      autoplay={autoplay ? {
+        delay: autoplayDelay,
         disableOnInteraction: false,
-      }}
+      } : false}
+      $rounded={rounded}
     >
-      {images.map((image, index) => (
-        <SwiperItem key={index}>
-          <SwiperItemImage src={image} alt={`swiper-${index}`} fill />
-        </SwiperItem>
-      ))}
+      {children}
     </Container>
   );
 };
 
 export default CommonCardsEffectSwiper;
 
-const Container = styled(Swiper)`
+type ContainerPropsType = {
+  $rounded?: boolean;
+};
+
+const Container = styled(Swiper, { shouldForwardProp })<ContainerPropsType>`
   width: 100%;
   height: auto;
   aspect-ratio: 7/5;
@@ -48,23 +62,17 @@ const Container = styled(Swiper)`
 
   /* ~ 모바일 */
   @media (min-width: 0px) and (max-width: ${breakpoint.mobile}px) {
-    border-radius: 16px;
+    border-radius: ${({ $rounded }) => ($rounded ? "16px" : "0")};
   }
   /* ~ 데스크톱 */
   @media (min-width: ${breakpoint.desktop}px) {
-    border-radius: 32px;
+    border-radius: ${({ $rounded }) => ($rounded ? "32px" : "0")};
   }
 `;
 
-const SwiperItem = styled(SwiperSlide)`
+export const SwiperItem = styled(SwiperSlide)`
   position: relative;
   ${mixinFlex("column", "center", "center")}
   width: 100%;
   height: 100%;
-`;
-
-const SwiperItemImage = styled(Image)`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 `; 

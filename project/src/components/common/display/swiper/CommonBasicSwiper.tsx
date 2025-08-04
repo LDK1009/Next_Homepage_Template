@@ -10,61 +10,76 @@ import "swiper/css/effect-fade"; // 페이드 효과 스타일
 
 import { styled } from "@mui/material";
 import { breakpoint, mixinFlex } from "@/styles/mixins";
-import Image from "next/image";
+import { shouldForwardProp } from "@/utils/mui";
 
 type PropsType = {
-  images: string[];
-}
-const CommonBasicSwiper = ({ images }: PropsType) => {
+  children: React.ReactNode;
+  spaceBetween?: number;
+  slidesPerView?: number;
+  loop?: boolean;
+  autoplay?: boolean;
+  autoplayDelay?: number;
+  rounded?: boolean;
+};
+
+const CommonBasicSwiper = ({
+  children,
+  spaceBetween = 30,
+  slidesPerView = 1,
+  loop = true,
+  autoplay = true,
+  autoplayDelay = 2000,
+  rounded = false,
+}: PropsType) => {
   return (
     <Container
       modules={[Autoplay]}
-      spaceBetween={30}
-      slidesPerView={1}
+      spaceBetween={spaceBetween}
+      slidesPerView={slidesPerView}
       pagination={{ clickable: true }}
-      loop={true}
-      autoplay={{
-        delay: 2000, // 자동 재생 시간 (ms)
-        disableOnInteraction: false, // 사용자 상호작용 후에도 자동 재생 유지
-      }}
+      loop={loop}
+      autoplay={
+        autoplay
+          ? {
+              delay: autoplayDelay,
+              disableOnInteraction: false,
+            }
+          : false
+      }
+      $rounded={rounded}
     >
-      {images.map((image, index) => (
-        <SwiperItem key={index}>
-          <SwiperItemImage src={image} alt={`swiper-${index}`} fill />
-        </SwiperItem>
-      ))}
+      {children}
     </Container>
   );
 };
 
 export default CommonBasicSwiper;
 
-const Container = styled(Swiper)`
+type ContainerPropsType = {
+  $rounded?: boolean;
+};
+
+const Container = styled(Swiper, { shouldForwardProp })<ContainerPropsType>`
   width: 100%;
   height: auto;
   aspect-ratio: 7/5;
   overflow: hidden;
   cursor: grab;
   
+
   /* ~ 모바일 */
   @media (min-width: 0px) and (max-width: ${breakpoint.mobile}px) {
-    border-radius: 16px;
+    border-radius: ${({ $rounded }) => ($rounded ? "16px" : "0")};
   }
   /* ~ 데스크톱 */
   @media (min-width: ${breakpoint.desktop}px) {
-    border-radius: 32px;
+    border-radius: ${({ $rounded }) => ($rounded ? "32px" : "0")};
   }
 `;
 
-const SwiperItem = styled(SwiperSlide)`
+export const SwiperItem = styled(SwiperSlide)`
   position: relative;
   ${mixinFlex("column", "center", "center")}
   width: 100%;
   height: 100%;
-`;
-
-const SwiperItemImage = styled(Image)`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 `;

@@ -61,6 +61,7 @@ const Container = styled(Stack)`
   backdrop-filter: blur(10px);
   box-shadow: 4px 4px 16px 0 rgba(0, 0, 0, 0.1);
 
+  z-index: 100;
   transition: opacity 0.5s ease-in-out;
 `;
 

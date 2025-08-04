@@ -1,6 +1,6 @@
 "use client";
 
-import { mixinContainer } from "@/styles/mixins";
+import { mixinContainer, mixinFlex } from "@/styles/mixins";
 import { Stack, styled } from "@mui/material";
 import CommonText from "@/components/common/display/text/CommonText";
 import CommonAnimationFade from "@/components/common/animation/CommonAnimationFade";
@@ -20,6 +20,7 @@ const MainContainer = () => {
           Hello World
         </CommonText>
       </CommonAnimationSlide>
+
       <CommonGoToBar
         menus={[
           {
@@ -53,7 +54,6 @@ const Container = styled(Stack)`
   ${mixinContainer}
 
   height:200vh;
-  background-image: url("/img/naver-blog.png");
 `;
 
 //////////////////////////////////////// Styles ////////////////////////////////////////
