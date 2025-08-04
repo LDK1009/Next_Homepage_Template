@@ -5,6 +5,7 @@ import { Stack, styled } from "@mui/material";
 import CommonText from "@/components/common/display/text/CommonText";
 import CommonAnimationFade from "@/components/common/animation/CommonAnimationFade";
 import CommonAnimationSlide from "@/components/common/animation/CommonAnimationSlide";
+import CommonGoToBar from "@/components/common/navigation/CommonGoToBar";
 
 const MainContainer = () => {
   return (
@@ -19,14 +20,40 @@ const MainContainer = () => {
           Hello World
         </CommonText>
       </CommonAnimationSlide>
+      <CommonGoToBar
+        menus={[
+          {
+            type: "kakao-talk",
+            link: "https://www.google.com",
+          },
+          {
+            type: "naver-blog",
+            link: "https://www.google.com",
+          },
+          {
+            type: "instagram",
+            link: "https://www.google.com",
+          },
+          {
+            type: "location",
+            link: "https://www.google.com",
+          },
+          {
+            type: "contact",
+            link: "https://www.google.com",
+          },
+        ]}
+      />
     </Container>
   );
 };
 
 export default MainContainer;
-
 const Container = styled(Stack)`
   ${mixinContainer}
+
+  height:200vh;
+  background-image: url("/img/naver-blog.png");
 `;
 
 //////////////////////////////////////// Styles ////////////////////////////////////////

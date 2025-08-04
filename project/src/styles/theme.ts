@@ -202,8 +202,8 @@ export const muiTheme = createTheme({
 
     text: {
       primary: "#000000",
-      secondary: "#AAAAAA",
-      disabled: "#666666",
+      secondary: "#777777",
+      disabled: "#AAAAAA",
       white: "#FFFFFF",
       black: "#000000",
     },
