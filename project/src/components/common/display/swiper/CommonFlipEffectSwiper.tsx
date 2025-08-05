@@ -8,7 +8,6 @@ import "swiper/css/effect-flip";
 
 import { styled } from "@mui/material";
 import { breakpoint, mixinFlex } from "@/styles/mixins";
-import { shouldForwardProp } from "@/utils/mui";
 
 type PropsType = {
   children: React.ReactNode;
@@ -30,35 +29,45 @@ const CommonFlipEffectSwiper = ({
   rounded = false
 }: PropsType) => {
   return (
-    <Container
-      modules={[EffectFlip, Autoplay]}
-      spaceBetween={spaceBetween}
-      slidesPerView={slidesPerView}
-      effect="flip"
-      loop={loop}
-      autoplay={autoplay ? {
-        delay: autoplayDelay,
-        disableOnInteraction: false,
-      } : false}
-      $rounded={rounded}
-    >
-      {children}
-    </Container>
+    <SwiperContainer $rounded={rounded}>
+      <Swiper
+        modules={[EffectFlip, Autoplay]}
+        spaceBetween={spaceBetween}
+        slidesPerView={slidesPerView}
+        effect="flip"
+        loop={loop}
+        autoplay={
+          autoplay
+            ? {
+                delay: autoplayDelay,
+                disableOnInteraction: false,
+              }
+            : false
+        }
+      >
+        {children}
+      </Swiper>
+    </SwiperContainer>
   );
 };
 
 export default CommonFlipEffectSwiper;
 
-type ContainerPropsType = {
+type SwiperContainerPropsType = {
   $rounded?: boolean;
 }
 
-const Container = styled(Swiper, {shouldForwardProp})<ContainerPropsType>`
+const SwiperContainer = styled("div")<SwiperContainerPropsType>`
   width: 100%;
   height: auto;
   aspect-ratio: 7/5;
   overflow: hidden;
   cursor: grab;
+  
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
   
   /* ~ 모바일 */
   @media (min-width: 0px) and (max-width: ${breakpoint.mobile}px) {

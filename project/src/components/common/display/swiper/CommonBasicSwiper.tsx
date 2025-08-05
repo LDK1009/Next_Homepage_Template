@@ -1,16 +1,12 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/effect-fade"; // 페이드 효과 스타일
 
 import { styled } from "@mui/material";
-import { breakpoint, mixinFlex } from "@/styles/mixins";
-import { shouldForwardProp } from "@/utils/mui";
+import { breakpoint } from "@/styles/mixins";
 
 type PropsType = {
   children: React.ReactNode;
@@ -32,40 +28,44 @@ const CommonBasicSwiper = ({
   rounded = false,
 }: PropsType) => {
   return (
-    <Container
-      modules={[Autoplay]}
-      spaceBetween={spaceBetween}
-      slidesPerView={slidesPerView}
-      pagination={{ clickable: true }}
-      loop={loop}
-      autoplay={
-        autoplay
-          ? {
-              delay: autoplayDelay,
-              disableOnInteraction: false,
-            }
-          : false
-      }
-      $rounded={rounded}
-    >
-      {children}
-    </Container>
+    <SwiperContainer $rounded={rounded}>
+      <Swiper
+        modules={[Autoplay]}
+        spaceBetween={spaceBetween}
+        slidesPerView={slidesPerView}
+        loop={loop}
+        autoplay={
+          autoplay
+            ? {
+                delay: autoplayDelay,
+                disableOnInteraction: false,
+              }
+            : false
+        }
+      >
+        {children}
+      </Swiper>
+    </SwiperContainer>
   );
 };
 
 export default CommonBasicSwiper;
 
-type ContainerPropsType = {
+type SwiperContainerPropsType = {
   $rounded?: boolean;
 };
 
-const Container = styled(Swiper, { shouldForwardProp })<ContainerPropsType>`
+const SwiperContainer = styled("div")<SwiperContainerPropsType>`
   width: 100%;
   height: auto;
   aspect-ratio: 7/5;
   overflow: hidden;
   cursor: grab;
-  
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
 
   /* ~ 모바일 */
   @media (min-width: 0px) and (max-width: ${breakpoint.mobile}px) {
@@ -75,11 +75,4 @@ const Container = styled(Swiper, { shouldForwardProp })<ContainerPropsType>`
   @media (min-width: ${breakpoint.desktop}px) {
     border-radius: ${({ $rounded }) => ($rounded ? "32px" : "0")};
   }
-`;
-
-export const SwiperItem = styled(SwiperSlide)`
-  position: relative;
-  ${mixinFlex("column", "center", "center")}
-  width: 100%;
-  height: 100%;
 `;
