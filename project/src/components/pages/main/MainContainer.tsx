@@ -1,47 +1,37 @@
 "use client";
 
-import { mixinContainer, mixinFlex } from "@/styles/mixins";
+import { mixinContainer } from "@/styles/mixins";
 import { Stack, styled } from "@mui/material";
-import CommonText from "@/components/common/display/text/CommonText";
-import CommonAnimationFade from "@/components/common/animation/CommonAnimationFade";
-import CommonAnimationSlide from "@/components/common/animation/CommonAnimationSlide";
-import CommonGoToBar from "@/components/common/navigation/CommonGoToBar";
+import CommonHeader from "@/components/common/navigation/CommonHeader";
+import { CottageOutlined, LocalHospitalOutlined } from "@mui/icons-material";
+import { useRouter } from "next/navigation";
 
 const MainContainer = () => {
+  const router = useRouter();
   return (
     <Container>
-      <CommonAnimationFade inViewRepeat duration={1} delay={1}>
-        <CommonText variant="h1" color="info" align="left">
-          Hello World
-        </CommonText>
-      </CommonAnimationFade>
-      <CommonAnimationSlide inViewRepeat direction="bottom">
-        <CommonText variant="h1" color="info" align="left">
-          Hello World
-        </CommonText>
-      </CommonAnimationSlide>
-
-      <CommonGoToBar
-        menus={[
+      <CommonHeader
+        menuList={[
           {
-            type: "kakao-talk",
-            link: "https://www.google.com",
+            title: "홈",
+            icon: <CottageOutlined />,
+            onClick: () => {
+              router.push("/");
+            },
           },
           {
-            type: "naver-blog",
-            link: "https://www.google.com",
+            title: "메뉴1",
+            icon: <LocalHospitalOutlined />,
+            onClick: () => {
+              router.push("/");
+            },
           },
           {
-            type: "instagram",
-            link: "https://www.google.com",
-          },
-          {
-            type: "location",
-            link: "https://www.google.com",
-          },
-          {
-            type: "contact",
-            link: "https://www.google.com",
+            title: "메뉴2",
+            icon: <LocalHospitalOutlined />,
+            onClick: () => {
+              router.push("/");
+            },
           },
         ]}
       />

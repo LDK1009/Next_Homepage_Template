@@ -5,6 +5,7 @@ import ClientSnackbarProvider from "@/lib/ClientSnackbarProvider";
 import GlobalStyles from "@/styles/GlobalStyles";
 import { templateInfo } from "@/utils/templateInfo";
 import Loading from "@/components/common/etc/Loading";
+import CommonDrawer from "@/components/common/display/drawer/CommonDrawer";
 
 // SEO 메타데이터
 export const metadata: Metadata = {
@@ -46,6 +47,8 @@ export default function RootLayout({
             <ClientSnackbarProvider />
             {/* 로딩 */}
             <Loading />
+            {/* 드로어 */}
+            <CommonDrawer/>
             {/* 페이지 컨텐츠 */}
             {children}
           </ThemeProviderWrapper>
