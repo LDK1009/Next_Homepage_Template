@@ -56,23 +56,25 @@ const HeroSection = ({ title, subTitle, CTAClick }: PropsType) => {
 
   return (
     <Container>
-      {/* 타이틀 */}
-      <CommonAnimationFade duration={1} delay={0.5}>
-        <Title sx={{ fontSize: isMobile ? "70px" : "120px" }}>{title}</Title>
-      </CommonAnimationFade>
-      {/* 서브타이틀 */}
-      <CommonAnimationFade duration={1} delay={1}>
-        <SubTitleWrapper>
-          <Logo src="/img/dentistry/logo/logo.png" alt="logo.png" width={48} height={48} />
-          <SubTitle sx={{ fontSize: isMobile ? "15px" : "30px" }}>{subTitle}</SubTitle>
-        </SubTitleWrapper>
-      </CommonAnimationFade>
-      {/* 버튼 */}
-      <CommonAnimationFade duration={1} delay={2}>
-        <CTAButton startIcon={<LocalPhoneOutlined />} onClick={isMobile ? CTAClick.mobile : CTAClick.desktop}>
-          문의하기
-        </CTAButton>
-      </CommonAnimationFade>
+      <ContentLayer>
+        {/* 타이틀 */}
+        <CommonAnimationFade duration={1} delay={0.5}>
+          <Title sx={{ fontSize: isMobile ? "70px" : "120px" }}>{title}</Title>
+        </CommonAnimationFade>
+        {/* 서브타이틀 */}
+        <CommonAnimationFade duration={1} delay={1}>
+          <SubTitleWrapper>
+            <Logo src="/img/dentistry/logo/logo.png" alt="logo.png" width={48} height={48} />
+            <SubTitle sx={{ fontSize: isMobile ? "15px" : "30px" }}>{subTitle}</SubTitle>
+          </SubTitleWrapper>
+        </CommonAnimationFade>
+        {/* 버튼 */}
+        <CommonAnimationFade duration={1} delay={2}>
+          <CTAButton startIcon={<LocalPhoneOutlined />} onClick={isMobile ? CTAClick.mobile : CTAClick.desktop}>
+            문의하기
+          </CTAButton>
+        </CommonAnimationFade>
+      </ContentLayer>
 
       {/* 배경 레이어 */}
       {images.map((image, index) => (
@@ -98,6 +100,10 @@ const Container = styled(Stack)`
   height: 100vh;
   ${mixinFlex("column", "center", "center")}
   background-color: ${({ theme }) => theme.palette.background.default};
+`;
+
+const ContentLayer = styled(Stack)`
+  z-index: 3;
 `;
 
 const Title = styled(Typography)`
