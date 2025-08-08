@@ -1,3 +1,4 @@
+import { mixinFlex } from "@/styles/mixins";
 import { shouldForwardProp } from "@/utils/mui";
 import { Stack, styled } from "@mui/material";
 import React from "react";
@@ -24,6 +25,7 @@ type ContainerPropsType = {
 
 const Container = styled(Stack, { shouldForwardProp })<ContainerPropsType>`
   position: relative;
+  ${mixinFlex("column", "center", "center")}
   width: ${({ $width }) => $width};
   height: ${({ $height }) => $height};
 `;

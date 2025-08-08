@@ -118,16 +118,15 @@ export const muiTheme = createTheme({
   },
   palette: {
     primary: {
-      dark: "#1565C0", // 딥 블루
-      main: "#0A84FF", // 대표 앱블루 (iOS/인스타/페이스북 공통)
-      light: "#90CAF9", // 연한 블루
+      dark: "#1565C0", // 차분한 딥 블루 (전문성과 신뢰감)
+      main: "#4DB6AC", // 메인 민트블루 (상쾌하고 편안한 느낌)
+      light: "#B2DFDB", // 파스텔 민트 (부드러운 배경 톤)
     },
     secondary: {
-      dark: "#FF4081", // 선명한 핑크 (Z세대 감성)
-      main: "#FF80AB", // 캔디 핑크
-      light: "#F8BBD0", // 파스텔 핑크
+      dark: "#00897B", // 짙은 청록 (포인트 강조)
+      main: "#81C784", // 파스텔 그린 (자연스러운 포인트)
+      light: "#C8E6C9", // 연한 그린 (부드러운 보조 배경)
     },
-
     secondaryVariable: {
       blue: {
         dark: "#0A2FCC",
@@ -188,7 +187,7 @@ export const muiTheme = createTheme({
       700: "#000000",
     },
     background: {
-      default: "#F9FAFB", // 모던 연회색 배경
+      default: "#F4FAFA", // 아주 옅은 민트+그레이 톤 (차분하고 청결한 전체 배경)
       paper: "#FFFFFF", // 카드/컴포넌트 배경
       0: "#ffffff",
       100: "#CCCCCC",
