@@ -19,7 +19,7 @@ const HeroSection = ({ title, subTitle, CTAClick }: PropsType) => {
 
   const images = [
     {
-      src: "/img/dentistry/01.png",
+      src: "/img/dentistry/hero/01.png",
       alt: "01.png",
       style: {
         top: "10%",
@@ -27,7 +27,7 @@ const HeroSection = ({ title, subTitle, CTAClick }: PropsType) => {
       },
     },
     {
-      src: "/img/dentistry/02.png",
+      src: "/img/dentistry/hero/02.png",
       alt: "02.png",
       style: {
         top: "0%",
@@ -36,7 +36,7 @@ const HeroSection = ({ title, subTitle, CTAClick }: PropsType) => {
       },
     },
     {
-      src: "/img/dentistry/03.png",
+      src: "/img/dentistry/hero/03.png",
       alt: "03.png",
       style: {
         bottom: "5%",
@@ -45,7 +45,7 @@ const HeroSection = ({ title, subTitle, CTAClick }: PropsType) => {
       },
     },
     {
-      src: "/img/dentistry/04.png",
+      src: "/img/dentistry/hero/04.png",
       alt: "04.png",
       style: {
         bottom: "10%",
@@ -63,7 +63,7 @@ const HeroSection = ({ title, subTitle, CTAClick }: PropsType) => {
       {/* 서브타이틀 */}
       <CommonAnimationFade duration={1} delay={1}>
         <SubTitleWrapper>
-          <Logo src="/img/logo/logo.png" alt="logo.png" width={48} height={48} />
+          <Logo src="/img/dentistry/logo/logo.png" alt="logo.png" width={48} height={48} />
           <SubTitle sx={{ fontSize: isMobile ? "15px" : "30px" }}>{subTitle}</SubTitle>
         </SubTitleWrapper>
       </CommonAnimationFade>
