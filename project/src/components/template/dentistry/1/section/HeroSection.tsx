@@ -2,17 +2,19 @@ import CommonAnimationFade from "@/components/common/animation/CommonAnimationFa
 import CommonAnimationFloating from "@/components/common/animation/CommonAnimationFloating";
 import CommonImage from "@/components/common/display/image/CommonImage";
 import { useDeviceType } from "@/hooks/useDeviceType";
-import { mixinFlex } from "@/styles/mixins";
-import { Stack, styled, Typography } from "@mui/material";
+import { mixinFlex, mixinMuiButtonNoShadow } from "@/styles/mixins";
+import { LocalPhoneOutlined } from "@mui/icons-material";
+import { Button, Stack, styled, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 
 type PropsType = {
   title: string;
   subTitle: string;
+  CTAClick: { desktop: () => void; mobile: () => void };
 };
 
-const HeroSection = ({ title, subTitle }: PropsType) => {
+const HeroSection = ({ title, subTitle, CTAClick }: PropsType) => {
   const { isMobile } = useDeviceType();
 
   const images = [
@@ -65,7 +67,13 @@ const HeroSection = ({ title, subTitle }: PropsType) => {
           <SubTitle sx={{ fontSize: isMobile ? "15px" : "30px" }}>{subTitle}</SubTitle>
         </SubTitleWrapper>
       </CommonAnimationFade>
-      
+      {/* 버튼 */}
+      <CommonAnimationFade duration={1} delay={2}>
+        <CTAButton startIcon={<LocalPhoneOutlined />} onClick={isMobile ? CTAClick.mobile : CTAClick.desktop}>
+          문의하기
+        </CTAButton>
+      </CommonAnimationFade>
+
       {/* 배경 레이어 */}
       {images.map((image, index) => (
         <CommonAnimationFloating key={image.alt} y={5 * (index + 1)} style={{ position: "absolute", ...image.style }}>
@@ -108,6 +116,18 @@ const SubTitleWrapper = styled(Stack)`
 const Logo = styled(Image)`
   border-radius: 50%;
   z-index: 2;
+`;
+
+const CTAButton = styled(Button)`
+  width: 200px;
+  height: 50px;
+  ${mixinMuiButtonNoShadow}
+  margin-top: 40px;
+  font-weight: bold;
+  border: 1px solid ${({ theme }) => theme.palette.secondary.main};
+  border-radius: 32px;
+  color: ${({ theme }) => theme.palette.secondary.main};
+  background-color: transparent;
 `;
 
 const SubTitle = styled(Typography)`
