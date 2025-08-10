@@ -37,7 +37,6 @@ declare module "@mui/material/styles" {
         dark: string;
         main: string;
         light: string;
-        contrastText: string;
       };
     };
   }
@@ -129,34 +128,44 @@ export const muiTheme = createTheme({
     },
     secondaryVariable: {
       blue: {
-        dark: "#0A2FCC",
-        main: "#0D45FF",
-        light: "#567AFF",
-        contrastText: "#FFFFFF",
+        dark: "#5A7FDF", // 부드러운 네이비톤 파스텔
+        main: "#8FAEF5", // 파스텔 블루
+        light: "#CFE2FF", // 아주 연한 하늘색
       },
       green: {
-        dark: "#00A650",
-        main: "#00FF84",
-        light: "#66FFC2",
-        contrastText: "#000000",
+        dark: "#4BAE90", // 파스텔 딥그린
+        main: "#8FE5C2", // 파스텔 민트
+        light: "#D6F5EC", // 밝은 민트
       },
       yellow: {
-        dark: "#C4A000",
-        main: "#FFD335",
-        light: "#FFE97F",
-        contrastText: "#000000",
+        dark: "#D4B347", // 파스텔 머스타드
+        main: "#FFE38D", // 파스텔 옐로우
+        light: "#FFF8D9", // 크림 옐로우
       },
       pink: {
-        dark: "#D6006B",
-        main: "#FF2D95",
-        light: "#FF7DC2",
-        contrastText: "#000000",
+        dark: "#E578A4", // 파스텔 로즈핑크
+        main: "#FFB7D5", // 베이비핑크
+        light: "#FFE6EB", // 파우더핑크
       },
       purple: {
-        dark: "#7E57C2",
-        main: "#B388FF",
-        light: "#E0CFFF",
-        contrastText: "#000000",
+        dark: "#9A8BC3", // 파스텔 바이올렛
+        main: "#C7B5E9", // 라일락
+        light: "#EEE6F9", // 연라벤더
+      },
+      teal: {
+        dark: "#4AA8A8", // 파스텔 딥틸
+        main: "#91D9D9", // 아쿠아 파스텔
+        light: "#DFF5F5", // 연한 아쿠아
+      },
+      orange: {
+        dark: "#E29E60", // 파스텔 브라운오렌지
+        main: "#FFD1A3", // 파스텔 오렌지
+        light: "#FFF0E1", // 크림 오렌지
+      },
+      beige: {
+        dark: "#BCA98A", // 샌드베이지
+        main: "#E6D7C3", // 파스텔 베이지
+        light: "#FAF4EC", // 아이보리
       },
     },
 

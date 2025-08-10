@@ -9,6 +9,7 @@ type PropsType = {
   services: {
     serviceName: string;
     serviceImage: string;
+    serviceDescription: string;
   }[];
 };
 const ServiceSection = ({ services }: PropsType) => {
@@ -32,6 +33,7 @@ const ServiceSection = ({ services }: PropsType) => {
             key={index}
             serviceName={service.serviceName}
             serviceImage={service.serviceImage}
+            serviceDescription={service.serviceDescription}
             index={index}
             isInView={isInView}
           />
@@ -47,7 +49,6 @@ const Container = styled(Stack)`
   ${mixinFlex("column", "center", "center")}
   row-gap: 40px;
   padding: 0px 24px;
-  padding-top: 120px;
 `;
 
 const SectionName = styled(Typography)`
@@ -57,17 +58,15 @@ const SectionName = styled(Typography)`
 
 const ServiceCards = styled(Grid2)``;
 
-const ServiceCard = ({
-  serviceName,
-  serviceImage,
-  index,
-  isInView,
-}: {
+type ServiceCardPropsType = {
   serviceName: string;
   serviceImage: string;
+  serviceDescription: string;
   index: number;
   isInView: boolean;
-}) => {
+};
+
+const ServiceCard = ({ serviceName, serviceImage, serviceDescription, index, isInView }: ServiceCardPropsType) => {
   const { isMobile } = useDeviceType();
 
   return (
@@ -78,9 +77,10 @@ const ServiceCard = ({
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
       <CommonImage src={serviceImage} alt={serviceName} width="100%" height="100%" />
-      <ServiceName sx={{ fontSize: isMobile ? "16px" : "24px", padding: isMobile ? "8px" : "16px" }}>
-        {serviceName}
-      </ServiceName>
+      <ServiceTextContainer>
+        <ServiceName sx={{ fontSize: isMobile ? "16px" : "24px" }}>{serviceName}</ServiceName>
+        <ServiceDescription>{serviceDescription}</ServiceDescription>
+      </ServiceTextContainer>
     </ServiceCardContainer>
   );
 };
@@ -101,10 +101,23 @@ const ServiceCardContainer = styled(motion(Grid2))`
   }
 `;
 
+const ServiceTextContainer = styled(Stack)`
+  width: 100%;
+  ${mixinFlex("column", "start", "start")}
+  padding: 16px;
+  border-top: 2px solid ${({ theme }) => theme.palette.secondary.light};
+`;
+
 const ServiceName = styled(Typography)`
   width: 100%;
-  ${mixinFlex("column", "center", "center")}
-  border-top: 2px solid ${({ theme }) => theme.palette.secondary.light};
+  text-align: left;
   color: ${({ theme }) => theme.palette.text.primary};
+  font-weight: bold;
+`;
+
+const ServiceDescription = styled(Typography)`
+  width: 100%;
+  ${mixinFlex("column", "center", "center")}
+  color: ${({ theme }) => theme.palette.text.secondary};
   font-weight: bold;
 `;

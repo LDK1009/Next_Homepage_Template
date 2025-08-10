@@ -1,7 +1,6 @@
 import { Stack, styled } from "@mui/material";
 import React, { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { mixinFlex } from "@/styles/mixins";
 
 type PropsType = {
   children: React.ReactNode;
@@ -77,7 +76,7 @@ const CommonAnimationSlide = ({
     <Container
       ref={containerRef}
       variants={animationVariants}
-      animate={isInView ? "animate" : "initial"}
+      animate={isInView && "animate"}
       viewport={{ once: !inViewRepeat, amount: 0.5 }}
       initial="initial"
     >
@@ -89,6 +88,5 @@ const CommonAnimationSlide = ({
 export default CommonAnimationSlide;
 
 const Container = styled(motion(Stack))`
-  ${mixinFlex("column", "center", "center")}
   width: 100%;
 `;

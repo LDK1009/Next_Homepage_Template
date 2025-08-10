@@ -31,7 +31,7 @@ const CommonAnimationFade = ({ children, inViewRepeat = false, duration = 0.5, d
     <Container
       ref={containerRef}
       variants={animationVariants}
-      animate={isInView ? "animate" : "initial"}
+      animate={isInView && "animate"}
       viewport={{ once: !inViewRepeat, amount: 0.5 }}
       initial="initial"
     >
