@@ -8,6 +8,7 @@ import ServiceSection from "./section/ServiceSection";
 import EquipmentSection from "./section/EquipmentSection";
 import AboutSection from "./section/AboutSection";
 import { FavoriteBorderOutlined, PrecisionManufacturingOutlined, VerifiedOutlined } from "@mui/icons-material";
+import ProfileSection from "./section/ProfileSection";
 
 type PropsType = {
   title: string;
@@ -50,6 +51,24 @@ const DentistryTemplate1 = ({ title, subTitle }: PropsType) => {
             icon: <FavoriteBorderOutlined />,
             text: "환자 중심",
           },
+        ]}
+      />
+
+      {/* 의료진 소개 섹션 */}
+      <ProfileSection
+        name="김성수"
+        philosophy="한 치의 타협도 없는 정직한 진료"
+        jobs={[
+          "서울대학교 치과대학 졸업",
+          "서울대치과병원 교정과 인턴·레지던트 수료",
+          "한림대학교 치과병원 임플란트센터 임상교수",
+          "전) 스마일케어치과 대표원장",
+          "대한치과보철학회(KAP) 정회원",
+          "대한구강악안면임플란트학회(KAOMI) 정회원",
+          "세계치과연맹(FDI) 정회원",
+          "미국치과의사협회(ADA) 국제회원",
+          "Fellow of International Congress of Oral Implantologists (ICOI)",
+          "2023 아시아임플란트학회 발표 연자",
         ]}
       />
 
