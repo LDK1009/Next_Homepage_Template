@@ -1,5 +1,6 @@
 import CommonImage from "@/components/common/display/image/CommonImage";
 import { useDeviceType } from "@/hooks/useDeviceType";
+import { shouldForwardProp } from "@/utils/mui";
 import { mixinFlex } from "@/styles/mixins";
 import { alpha, Grid2, Stack, styled, Typography } from "@mui/material";
 import { motion, useInView } from "motion/react";
@@ -71,6 +72,7 @@ const ServiceCard = ({ serviceName, serviceImage, serviceDescription, index, isI
 
   return (
     <ServiceCardContainer
+      $isMobile={isMobile}
       size={isMobile ? 6 : 3}
       initial={{ opacity: 0, y: 100 }}
       animate={isInView && { opacity: 1, y: 0 }}
@@ -85,11 +87,15 @@ const ServiceCard = ({ serviceName, serviceImage, serviceDescription, index, isI
   );
 };
 
-const ServiceCardContainer = styled(motion(Grid2))`
+type CommonStyleProps = {
+  $isMobile: boolean;
+};
+
+const ServiceCardContainer = styled(motion(Grid2), { shouldForwardProp })<CommonStyleProps>`
   ${mixinFlex("column", "center", "center")}
-  box-shadow: 0px 0px 16px 0px ${({ theme }) => alpha(theme.palette.secondary.main, 0.6)};
   border-radius: 16px;
   overflow: hidden;
+  border: 2px solid ${({ theme }) => theme.palette.secondary.light};
   background-color: ${({ theme }) => theme.palette.background.paper};
   cursor: pointer;
 
