@@ -119,7 +119,40 @@ const DentistryTemplate1 = ({ title, subTitle }: PropsType) => {
       />
 
       {/* 장비 섹션 */}
-      <EquipmentSection />
+      <EquipmentSection
+        equipments={[
+          {
+            imgSrc: "/img/dentistry/equipment/ct.png",
+            equipmentName: "디지털 3D CT",
+            equipmentDescription: "고해상도 촬영으로 치조골·신경 위치를 정밀 파악해 안전한 치료 계획을 제공합니다.",
+          },
+          {
+            imgSrc: "/img/dentistry/equipment/scanner.png",
+            equipmentName: "구강 스캐너",
+            equipmentDescription: "광학 스캔으로 빠르고 정확한 본뜨기, 맞춤형 보철물 제작에 최적화되어 있습니다.",
+          },
+          {
+            imgSrc: "/img/dentistry/equipment/laser.png",
+            equipmentName: "고출력 레이저",
+            equipmentDescription: "출혈과 통증을 줄이고 회복을 앞당기는 연조직·치주 치료에 활용됩니다.",
+          },
+          {
+            imgSrc: "/img/dentistry/equipment/injector.png",
+            equipmentName: "무통 주사기",
+            equipmentDescription: "마취 약물 주입 속도를 정밀 제어해 통증과 불편감을 최소화합니다.",
+          },
+          {
+            imgSrc: "/img/dentistry/equipment/sterilizer.png",
+            equipmentName: "고압증기 멸균기",
+            equipmentDescription: "고온·고압 멸균으로 교차감염을 예방하며 1회용 소모품 사용 원칙을 준수합니다.",
+          },
+          {
+            imgSrc: "/img/dentistry/equipment/xray.png",
+            equipmentName: "디지털 X-ray",
+            equipmentDescription: "저선량으로 선명한 영상을 제공해 진단 정확도를 높이고 방사선 노출을 최소화합니다.",
+          },
+        ]}
+      />
     </Container>
   );
 };

@@ -79,7 +79,7 @@ const ServiceCard = ({ serviceName, serviceImage, serviceDescription, index, isI
       <CommonImage src={serviceImage} alt={serviceName} width="100%" height="100%" />
       <ServiceTextContainer>
         <ServiceName sx={{ fontSize: isMobile ? "16px" : "24px" }}>{serviceName}</ServiceName>
-        <ServiceDescription>{serviceDescription}</ServiceDescription>
+        <ServiceDescription sx={{ fontSize: isMobile ? "12px" : "16px" }}>{serviceDescription}</ServiceDescription>
       </ServiceTextContainer>
     </ServiceCardContainer>
   );
