@@ -18,10 +18,26 @@ const QuickLinkSection = ({ items }: QuickLinkSectionPropsType) => {
   return (
     <Container>
       <SectionName $isMobile={isMobile}>퀵링크</SectionName>
-      <LinkGrid container spacing={isMobile ? 2 : 4}>
+      <LinkGrid container spacing={isMobile ? 1 : 2}>
         {items.map((item, index) => (
-          <LinkItem key={`${item.title}-${index}`} size={isMobile ? 6 : 3}>
-            <LinkButton variant="outlined" onClick={item.onClick} startIcon={item.icon}>
+          <LinkItem
+            key={`${item.title}-${index}`}
+            size={isMobile ? 6 : 3}
+            sx={{
+              height: isMobile ? "30px" : "50px",
+            }}
+          >
+            <LinkButton
+              variant="outlined"
+              onClick={item.onClick}
+              startIcon={item.icon}
+              sx={{
+                fontSize: isMobile ? "16px" : "24px",
+                "& .MuiSvgIcon-root": {
+                  fontSize: isMobile ? "16px" : "24px",
+                },
+              }}
+            >
               {item.title}
             </LinkButton>
           </LinkItem>
@@ -56,4 +72,5 @@ const LinkItem = styled(Grid2)``;
 
 const LinkButton = styled(Button)`
   width: 100%;
+  height: 100%;
 `;
