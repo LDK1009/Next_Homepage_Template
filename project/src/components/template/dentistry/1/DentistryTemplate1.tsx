@@ -13,6 +13,7 @@ import ReviewSection from "./section/ReviewSection";
 import CommonGoToBar from "@/components/common/navigation/CommonGoToBar";
 import { useDeviceType } from "@/hooks/useDeviceType";
 import BusinessHoursSection from "./section/BusinessHoursSection";
+import FAQSection from "./section/FAQSection";
 
 type PropsType = {
   title: string;
@@ -305,6 +306,9 @@ const DentistryTemplate1 = ({ title, subTitle }: PropsType) => {
           },
         ]}
       />
+
+      {/* 자주 묻는 질문 */}
+      <FAQSection />
     </Container>
   );
 };
