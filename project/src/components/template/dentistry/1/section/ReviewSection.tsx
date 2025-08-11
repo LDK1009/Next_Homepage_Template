@@ -5,7 +5,7 @@ import { shouldForwardProp } from "@/utils/mui";
 import { Stack, styled, Typography } from "@mui/material";
 import React from "react";
 
-type PropsType = {
+export type ReviewSectionPropsType = {
   reviews: {
     type: "kakao" | "naver" | "etc";
     nickName: string;
@@ -15,7 +15,7 @@ type PropsType = {
   }[];
 };
 
-const ReviewSection = ({ reviews }: PropsType) => {
+const ReviewSection = ({ reviews }: ReviewSectionPropsType) => {
   const { isMobile } = useDeviceType();
   return (
     <Container $isMobile={isMobile}>

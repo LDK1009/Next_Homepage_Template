@@ -7,7 +7,7 @@ import React from "react";
 import { SwiperSlide } from "swiper/react";
 import { shouldForwardProp } from "@/utils/mui";
 
-type PropsType = {
+export type EquipmentSectionPropsType = {
   equipments: {
     imgSrc: string;
     equipmentName: string;
@@ -15,7 +15,7 @@ type PropsType = {
   }[];
 };
 
-const EquipmentSection = ({ equipments }: PropsType) => {
+const EquipmentSection = ({ equipments }: EquipmentSectionPropsType) => {
   const { isMobile } = useDeviceType();
 
   return (

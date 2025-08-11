@@ -14,7 +14,7 @@ import styled from "@mui/material/styles/styled";
 import { useScroll } from "motion/react";
 import React, { useEffect, useState } from "react";
 
-type PropsType = {
+export type CommonGoToBarPropsType = {
   menus: MenuType[];
 };
 
@@ -23,7 +23,7 @@ type MenuType = {
   onClick: () => void;
 };
 
-const CommonGoToBar = ({ menus }: PropsType) => {
+const CommonGoToBar = ({ menus }: CommonGoToBarPropsType) => {
   // 간단한 스크롤 감지
   const { scrollY } = useScroll();
   const [isScrolling, setIsScrolling] = useState(false);

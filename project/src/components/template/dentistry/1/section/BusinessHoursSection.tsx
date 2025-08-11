@@ -9,14 +9,14 @@ import CommonImage from "@/components/common/display/image/CommonImage";
 import CommonAnimationFloating from "@/components/common/animation/CommonAnimationFloating";
 import CommonAnimationSlide from "@/components/common/animation/CommonAnimationSlide";
 
-type PropsType = {
+export type BusinessHoursSectionPropsType = {
   businessHours: {
     day: string;
     time: string;
   }[];
 };
 
-const BusinessHoursSection = ({ businessHours }: PropsType) => {
+const BusinessHoursSection = ({ businessHours }: BusinessHoursSectionPropsType) => {
   const { isMobile } = useDeviceType();
 
   return (

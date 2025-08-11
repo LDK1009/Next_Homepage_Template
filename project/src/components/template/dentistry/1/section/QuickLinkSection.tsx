@@ -4,7 +4,7 @@ import React from "react";
 import { shouldForwardProp } from "@/utils/mui";
 import { useDeviceType } from "@/hooks/useDeviceType";
 
-type PropsType = {
+export type QuickLinkSectionPropsType = {
   items: {
     title: string;
     icon: React.ReactNode;
@@ -12,7 +12,7 @@ type PropsType = {
   }[];
 };
 
-const QuickLinkSection = ({ items }: PropsType) => {
+const QuickLinkSection = ({ items }: QuickLinkSectionPropsType) => {
   const { isMobile } = useDeviceType();
 
   return (

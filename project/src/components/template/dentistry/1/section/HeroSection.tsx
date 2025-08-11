@@ -8,13 +8,13 @@ import { alpha, Button, Stack, styled, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 
-type PropsType = {
+export type HeroSectionPropsType = {
   title: string;
   subTitle: string;
   CTAClick: { desktop: () => void; mobile: () => void };
 };
 
-const HeroSection = ({ title, subTitle, CTAClick }: PropsType) => {
+const HeroSection = ({ title, subTitle, CTAClick }: HeroSectionPropsType) => {
   const { isMobile } = useDeviceType();
 
   const images = [

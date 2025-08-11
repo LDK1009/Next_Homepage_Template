@@ -6,14 +6,14 @@ import { alpha, Grid2, Stack, styled, Typography } from "@mui/material";
 import { motion, useInView } from "motion/react";
 import React, { useRef } from "react";
 
-type PropsType = {
+export type ServiceSectionPropsType = {
   services: {
     serviceName: string;
     serviceImage: string;
     serviceDescription: string;
   }[];
 };
-const ServiceSection = ({ services }: PropsType) => {
+const ServiceSection = ({ services }: ServiceSectionPropsType) => {
   const inViewRef = useRef(null);
   const isInView = useInView(inViewRef);
 

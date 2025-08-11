@@ -6,7 +6,7 @@ import React from "react";
 import { shouldForwardProp } from "@/utils/mui";
 import CommonAnimationSlide from "@/components/common/animation/CommonAnimationSlide";
 
-type PropsType = {
+export type AboutSectionPropsType = {
   title: string;
   description: string;
   tags: {
@@ -15,7 +15,7 @@ type PropsType = {
   }[];
 };
 
-const AboutSection = ({ title, description, tags }: PropsType) => {
+const AboutSection = ({ title, description, tags }: AboutSectionPropsType) => {
   const { isMobile } = useDeviceType();
 
   return (

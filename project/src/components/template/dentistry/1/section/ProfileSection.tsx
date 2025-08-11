@@ -7,13 +7,13 @@ import { shouldForwardProp } from "@/utils/mui";
 import CommonAnimationFade from "@/components/common/animation/CommonAnimationFade";
 import CommonAnimationSlide from "@/components/common/animation/CommonAnimationSlide";
 
-type PropsType = {
+export type ProfileSectionPropsType = {
   name: string;
   philosophy: string;
   jobs: string[];
 };
 
-const ProfileSection = ({ name, philosophy, jobs }: PropsType) => {
+const ProfileSection = ({ name, philosophy, jobs }: ProfileSectionPropsType) => {
   const { isMobile } = useDeviceType();
 
   return (
