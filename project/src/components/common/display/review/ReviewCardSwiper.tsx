@@ -6,6 +6,7 @@ import { Autoplay } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
+import { mixinFlex } from "@/styles/mixins";
 
 type PropsType = {
   reviews: {
@@ -15,20 +16,37 @@ type PropsType = {
     tags: string[];
     link?: string;
   }[];
+  options?: {
+    autoplayEnabled?: boolean;
+    autoplayDelay?: number;
+    autoplayDisableOnInteraction?: boolean;
+    slidesPerView?: number;
+    spaceBetween?: number;
+  };
 };
 
-const ReviewCardSwiper = ({ reviews }: PropsType) => {
+const ReviewCardSwiper = ({
+  reviews,
+  options = {
+    autoplayEnabled: true,
+    autoplayDelay: 3000,
+    autoplayDisableOnInteraction: true,
+    slidesPerView: 1.75,
+    spaceBetween: 32,
+  },
+}: PropsType) => {
   return (
     <Container>
       <Swiper
-        modules={[Autoplay]}
+        modules={options?.autoplayEnabled ? [Autoplay] : []}
         autoplay={{
-          delay: 3000,
-          disableOnInteraction: true,
+          delay: options?.autoplayDelay,
+          disableOnInteraction: options?.autoplayDisableOnInteraction,
         }}
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView={1.75}
+        slidesPerView={options?.slidesPerView}
+        spaceBetween={options?.spaceBetween}
       >
         {reviews.map((review, index) => (
           <StyledSwiperSlide key={`review-${index}`}>
@@ -67,4 +85,8 @@ const Container = styled(Stack)`
   }
 `;
 
-const StyledSwiperSlide = styled(SwiperSlide)``;
+const StyledSwiperSlide = styled(SwiperSlide)`
+  ${mixinFlex("column", "center", "center")}
+  width: 100%;
+  height: 100%;
+`;

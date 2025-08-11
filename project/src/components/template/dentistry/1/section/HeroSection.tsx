@@ -4,7 +4,7 @@ import CommonImage from "@/components/common/display/image/CommonImage";
 import { useDeviceType } from "@/hooks/useDeviceType";
 import { mixinFlex, mixinMuiButtonNoShadow } from "@/styles/mixins";
 import { LocalPhoneOutlined } from "@mui/icons-material";
-import { Button, Stack, styled, Typography } from "@mui/material";
+import { alpha, Button, Stack, styled, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 
@@ -134,6 +134,8 @@ const CTAButton = styled(Button)`
   border-radius: 32px;
   color: ${({ theme }) => theme.palette.secondary.main};
   background-color: transparent;
+  backdrop-filter: blur(8px);
+  background-color: ${({ theme }) => alpha(theme.palette.background.paper, 0.7)};
 `;
 
 const SubTitle = styled(Typography)`
