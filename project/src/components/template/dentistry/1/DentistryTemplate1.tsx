@@ -7,13 +7,26 @@ import HeroSection from "./section/HeroSection";
 import ServiceSection from "./section/ServiceSection";
 import EquipmentSection from "./section/EquipmentSection";
 import AboutSection from "./section/AboutSection";
-import { FavoriteBorderOutlined, PrecisionManufacturingOutlined, VerifiedOutlined } from "@mui/icons-material";
+import {
+  ChatBubbleOutlineRounded,
+  FavoriteBorderOutlined,
+  HeadsetMicOutlined,
+  HistoryEduRounded,
+  ImageOutlined,
+  Instagram,
+  MapOutlined,
+  NavigationOutlined,
+  PrecisionManufacturingOutlined,
+  RateReviewOutlined,
+  VerifiedOutlined,
+} from "@mui/icons-material";
 import ProfileSection from "./section/ProfileSection";
 import ReviewSection from "./section/ReviewSection";
 import CommonGoToBar from "@/components/common/navigation/CommonGoToBar";
 import { useDeviceType } from "@/hooks/useDeviceType";
 import BusinessHoursSection from "./section/BusinessHoursSection";
 import FAQSection from "./section/FAQSection";
+import QuickLinkSection from "./section/QuickLinkSection";
 
 type PropsType = {
   title: string;
@@ -75,7 +88,7 @@ const DentistryTemplate1 = ({ title, subTitle }: PropsType) => {
             window.open(`https://pf.kakao.com/_xgyIxlT`, "_blank");
           },
           mobile: () => {
-            window.open(`https://pf.kakao.com/_xgyIxlT`, "_blank");
+            window.open(`tel:0507-1446-2081`, "_blank");
           },
         }}
       />
@@ -309,6 +322,72 @@ const DentistryTemplate1 = ({ title, subTitle }: PropsType) => {
 
       {/* 자주 묻는 질문 */}
       <FAQSection />
+
+      {/* 퀵링크 섹션 */}
+      <QuickLinkSection
+        items={[
+          {
+            title: "문의하기",
+            icon: <HeadsetMicOutlined />,
+            onClick: () => {
+              if (isMobile) {
+                window.open(`tel:0507-1446-2081`, "_blank");
+              } else {
+                window.open(`https://pf.kakao.com/_xgyIxlT`, "_blank");
+              }
+            },
+          },
+          {
+            title: "카카오톡",
+            icon: <ChatBubbleOutlineRounded />,
+            onClick: () => {
+              window.open("https://pf.kakao.com/_xgyIxlT", "_blank");
+            },
+          },
+          {
+            title: "인스타그램",
+            icon: <Instagram />,
+            onClick: () => {
+              window.open("https://www.instagram.com/kssdentalclinic/", "_blank");
+            },
+          },
+          {
+            title: "네이버 블로그",
+            icon: <HistoryEduRounded />,
+            onClick: () => {
+              window.open("https://blog.naver.com/dentkim86", "_blank");
+            },
+          },
+          {
+            title: "리뷰",
+            icon: <RateReviewOutlined />,
+            onClick: () => {
+              window.open("https://naver.me/F4LXuSLA", "_blank");
+            },
+          },
+          {
+            title: "사진",
+            icon: <ImageOutlined />,
+            onClick: () => {
+              window.open("https://naver.me/5V8TXT6L", "_blank");
+            },
+          },
+          {
+            title: "위치",
+            icon: <MapOutlined />,
+            onClick: () => {
+              window.open("https://naver.me/xCtrNIDW", "_blank");
+            },
+          },
+          {
+            title: "길찾기",
+            icon: <NavigationOutlined />,
+            onClick: () => {
+              window.open("https://naver.me/xCtrNIDW", "_blank");
+            },
+          },
+        ]}
+      />
     </Container>
   );
 };
