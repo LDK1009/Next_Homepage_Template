@@ -43,6 +43,7 @@ type CommonStyleProps = {
 const Container = styled(Stack, { shouldForwardProp })<CommonStyleProps>`
   width: ${({ $isMobile }) => ($isMobile ? "100%" : "50%")};
   ${mixinFlex("column", "center", "center")}
+  row-gap: 40px;
 `;
 
 const SectionName = styled(Typography, { shouldForwardProp })<CommonStyleProps>`

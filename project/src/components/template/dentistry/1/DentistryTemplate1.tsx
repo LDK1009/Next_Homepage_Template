@@ -12,6 +12,7 @@ import ProfileSection from "./section/ProfileSection";
 import ReviewSection from "./section/ReviewSection";
 import CommonGoToBar from "@/components/common/navigation/CommonGoToBar";
 import { useDeviceType } from "@/hooks/useDeviceType";
+import BusinessHoursSection from "./section/BusinessHoursSection";
 
 type PropsType = {
   title: string;
@@ -278,6 +279,32 @@ const DentistryTemplate1 = ({ title, subTitle }: PropsType) => {
           },
         ]}
       />
+
+      {/* 영업시간 섹션 */}
+      <BusinessHoursSection
+        businessHours={[
+          {
+            day: "월, 수, 금",
+            time: "09:00 - 19:00",
+          },
+          {
+            day: "화, 목",
+            time: "09:00 - 20:00",
+          },
+          {
+            day: "토",
+            time: "09:00 - 14:00",
+          },
+          {
+            day: "공휴일",
+            time: "09:00 - 16:00",
+          },
+          {
+            day: "점심시간",
+            time: "12:00 - 14:00",
+          },
+        ]}
+      />
     </Container>
   );
 };
@@ -287,4 +314,5 @@ export default DentistryTemplate1;
 const Container = styled(Stack)`
   ${mixinContainer}
   row-gap: 120px;
+  padding-bottom: 120px;
 `;

@@ -28,19 +28,23 @@ export const mixinContainer = () => css`
   // ~ 모바일
   @media (min-width: 0px) and (max-width: ${breakpoint.mobile}px) {
     padding: 0px 16px;
+    padding-bottom: 120px;
   }
 
   // 모바일 ~ 태블릿
   @media (min-width: ${breakpoint.mobile}px) and (max-width: ${breakpoint.tablet}px) {
+    padding-bottom: 120px;
   }
 
   // 태블릿 ~ 노트북
   @media (min-width: ${breakpoint.tablet}px) and (max-width: ${breakpoint.laptop}px) {
+    padding-bottom: 120px;
   }
 
   // 데스크톱 ~
   @media (min-width: ${breakpoint.desktop}px) {
     padding: 0px 320px;
+    padding-bottom: 120px;
   }
 `;
 
