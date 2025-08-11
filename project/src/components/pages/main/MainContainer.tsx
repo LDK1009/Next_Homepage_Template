@@ -365,7 +365,7 @@ const MainContainer = () => {
           title: "위치",
           icon: <MapOutlined />,
           onClick: () => {
-            window.open("https://naver.me/xCtrNIDW", "_blank");
+            window.open("https://naver.me/502jSHj5", "_blank");
           },
         },
         {
