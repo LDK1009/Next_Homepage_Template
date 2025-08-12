@@ -14,7 +14,7 @@ type PropsType = {
     nickName: string;
     reviewText: string;
     tags: string[];
-    link?: string;
+    onClick?: () => void;
   }[];
   options?: {
     autoplayEnabled?: boolean;

@@ -9,20 +9,14 @@ export type ReviewType = {
   nickName: string;
   reviewText: string;
   tags: string[];
-  link?: string;
+  onClick?: () => void;
 };
 
 type PropsType = ReviewType;
 
-const ReviewCard = ({ type, nickName, reviewText, tags, link }: PropsType) => {
-  function GoToReview() {
-    if (link) {
-      window.open(link, "_blank");
-    }
-  }
-
+const ReviewCard = ({ type, nickName, reviewText, tags, onClick }: PropsType) => {
   return (
-    <Container $type={type} onClick={GoToReview}>
+    <Container $type={type} onClick={onClick}>
       {/* 헤더 */}
       <Header $type={type}>
         <LogoText>{type === "kakao" ? "K" : type === "naver" ? "N" : ""}</LogoText>

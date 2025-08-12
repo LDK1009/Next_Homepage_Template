@@ -30,24 +30,18 @@ const ProfileSection = ({ name, philosophy, jobs }: ProfileSectionPropsType) => 
           <CommonImage src={"/img/dentistry/profile/profile.png"} alt="equipment" width="100%" height="100%" />
         </ImageContainer>
         <ProfileTextContainer>
-          <CommonAnimationFade delay={0.75} duration={1}>
+          <CommonAnimationFade delay={0.5} duration={1}>
             <ProfileName $isMobile={isMobile} variant="h6">
               {name}
             </ProfileName>
           </CommonAnimationFade>
-          <CommonAnimationFade delay={0.75 * 2} duration={1}>
+          <CommonAnimationFade delay={0.75} duration={1}>
             <ProfilePhilosophy $isMobile={isMobile} variant="body1">
               &quot;{philosophy}&quot;
             </ProfilePhilosophy>
           </CommonAnimationFade>
           {jobs.map((job, index) => (
-            <CommonAnimationSlide
-              key={index}
-              delay={0.1 * index + 0.75 * 3}
-              duration={0.3}
-              direction="left"
-              distance={30}
-            >
+            <CommonAnimationSlide key={index} delay={0.1 * index} duration={0.3} direction="left" distance={30}>
               <ProfileJob $isMobile={isMobile} variant="body1">
                 • {job}
               </ProfileJob>

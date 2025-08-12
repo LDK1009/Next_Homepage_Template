@@ -25,55 +25,63 @@ const MainContainer = () => {
         {
           type: "kakao-talk",
           onClick: () => {
-            window.open("https://pf.kakao.com/_xgyIxlT", "_blank");
+            alert("카카오톡 채널로 이동합니다.");
+            // window.open("https://pf.kakao.com/_xgyIxlT", "_blank");
           },
         },
         {
           type: "instagram",
           onClick: () => {
-            window.open("https://www.instagram.com/kssdentalclinic/", "_blank");
+            alert("인스타그램으로 이동합니다.");
+            // window.open("https://www.instagram.com/kssdentalclinic/", "_blank");
           },
         },
         {
           type: "naver-blog",
           onClick: () => {
-            window.open("https://blog.naver.com/dentkim86", "_blank");
+            alert("네이버 블로그로 이동합니다.");
+            // window.open("https://blog.naver.com/dentkim86", "_blank");
           },
         },
         {
           type: "contact",
           onClick: () => {
             if (isMobile) {
-              window.open("tel:0507-1446-2081", "_blank");
+              window.open("tel:010-2041-5761", "_blank");
+              // window.open("tel:010-2041-5761", "_blank");
             } else {
-              window.open("https://naver.me/502jSHj5", "_blank");
+              alert("카카오톡 채널로 이동합니다.");
+              // window.open("https://naver.me/502jSHj5", "_blank");
             }
           },
         },
         {
           type: "location",
           onClick: () => {
-            window.open("https://naver.me/xCtrNIDW", "_blank");
+            alert("네이버 지도의 위치 탭으로 이동합니다.");
+            // window.open("https://naver.me/xCtrNIDW", "_blank");
           },
         },
       ],
     },
     hero: {
       title: "정직한 진료, 편안한 치료",
-      subTitle: "김성수 치과가 두려운 마음까지 보살핍니다.",
+      subTitle: "화이트라인치과가 두려운 마음까지 보살핍니다.",
       CTAClick: {
         desktop: () => {
-          window.open(`https://pf.kakao.com/_xgyIxlT`, "_blank");
+          alert("카카오톡 채널로 이동합니다.");
+          // window.open(`https://pf.kakao.com/_xgyIxlT`, "_blank");
         },
         mobile: () => {
-          window.open(`tel:0507-1446-2081`, "_blank");
+          window.open(`tel:010-2041-5761`, "_blank");
+          // window.open(`tel:0507-1446-2081`, "_blank");
         },
       },
     },
     about: {
       title: "환자의 건강과 미소를 지키는 치과",
       description:
-        "김성수 치과는 환자 한 분 한 분의 이야기에 귀 기울이며,\n<b>맞춤형 진료</b>와 <b>최신 장비</b>로 <b>최상의 치료</b>를 제공합니다.\n<b>1인 전담 진료</b>로 처음 상담부터 시술, 사후 관리까지 책임집니다.\n불필요한 치료를 권하지 않으며, <b>정직하고 투명한 진료</b>를 약속드립니다.",
+        "화이트라인치과는 환자 한 분 한 분의 이야기에 귀 기울이며,\n<b>맞춤형 진료</b>와 <b>최신 장비</b>로 <b>최상의 치료</b>를 제공합니다.\n<b>1인 전담 진료</b>로 처음 상담부터 시술, 사후 관리까지 책임집니다.\n불필요한 치료를 권하지 않으며, <b>정직하고 투명한 진료</b>를 약속드립니다.",
       tags: [
         {
           icon: <VerifiedOutlined />,
@@ -90,7 +98,7 @@ const MainContainer = () => {
       ],
     },
     profile: {
-      name: "김성수",
+      name: "이동규",
       philosophy: "한 치의 타협도 없는 정직한 진료",
       jobs: [
         "서울대학교 치과대학 졸업",
@@ -191,14 +199,20 @@ const MainContainer = () => {
           reviewText:
             "지인 추천으로 간 치과였는데, 스케일링이랑 사랑니 발치 치료 잘 받았습니당！ 친절하게 해주셔서 다음에도 여기 방문할 것 같아요😀",
           tags: ["친절", "청결", "치료"],
-          link: "https://naver.me/F4LXuSLA",
+          onClick: () => {
+            alert("네이버맵의 리뷰 탭으로 이동합니다.");
+            // window.open("https://naver.me/F4LXuSLA", "_blank");
+          },
         },
         {
           type: "kakao",
           nickName: "ㄱ****",
           reviewText: "가장 제대로 하고 가장 친절한 병원.",
           tags: ["친절", "진심", "정직"],
-          link: "https://place.map.kakao.com/1126433156#review",
+          onClick: () => {
+            alert("카카오맵의 리뷰 탭으로 이동합니다.");
+            // window.open("https://place.map.kakao.com/1126433156#review", "_blank");
+          },
         },
         {
           type: "naver",
@@ -206,7 +220,10 @@ const MainContainer = () => {
           reviewText:
             "이제껏 다닌 병원 중 선생님 실력이 최고에요 지인들한테도 엄청 소개 많이 하는 믿고 맡길수 있는 병원입니다",
           tags: ["실력", "친절", "청결"],
-          link: "https://naver.me/F4LXuSLA",
+          onClick: () => {
+            alert("네이버맵의 리뷰 탭으로 이동합니다.");
+            // window.open("https://naver.me/F4LXuSLA", "_blank");
+          },
         },
         {
           type: "kakao",
@@ -214,7 +231,10 @@ const MainContainer = () => {
           reviewText:
             "원장님부터 치위생사 선생님들 데스크 선생님들 전문성과 친절함이 넘 최고십니당 ㅠㅠㅠ 스케일링도 너~무 친절하고 제 치아 특성상 주의해야 하는 관리법도 이렇게 상세하게 알려주신 병원은 여기가 첨이에요 ㅠ 과잉진료도 절대 안하시구 최대한 살릴 수 있는 치아는 어떻게 살리면 되는지 알려주십니당 자발적으로 병원 리뷰 잘 안적는데 넘 감동해서 적구 갑니당 ㅎㅎ 넘 인기많아지셔서 대기 많아지는건 싫지만.. ㅋㅋ",
           tags: ["친절", "스케일링", "통증"],
-          link: "https://place.map.kakao.com/1126433156#review",
+          onClick: () => {
+            alert("카카오맵의 리뷰 탭으로 이동합니다.");
+            // window.open("https://place.map.kakao.com/1126433156#review", "_blank");
+          },
         },
         {
           type: "naver",
@@ -222,7 +242,10 @@ const MainContainer = () => {
           reviewText:
             "이빨 빼는데 하나도 안아프고 좋았어요 !! 간호사님 이쁘고 친절하고 착하십니다 엄청두려웠는데 이젠 후련합니다!!",
           tags: ["친절", "간호사", "후련함"],
-          link: "https://naver.me/F4LXuSLA",
+          onClick: () => {
+            alert("네이버맵의 리뷰 탭으로 이동합니다.");
+            // window.open("https://naver.me/F4LXuSLA", "_blank");
+          },
         },
         {
           type: "kakao",
@@ -230,7 +253,10 @@ const MainContainer = () => {
           reviewText:
             "평택에서 제가 사랑니 통증 치료 및 발치때문에 왠만한데 다 돌아다녀보고 견적보고 상태 엑스레이등등으로 확인했을때는 여기 좋을까 싶었는데 직접 받아보세요, 의사선생님 스킬 g립니다... (상스럽지만 진심) 아래 사랑니 모두발치했는데 통증없고 다른데서는 많이썩었다고 잇몸절개 각오하셔야할듯 모 이렇게 말했어서 진심 쫄아있었는데 마취경과 10분도 안되서 깔끔하게 뿌리까지 양쪽 모두 뽑아주심.... 서비스로 스케일링 등 기본적인거 진행해주시고...이후 통증도 없고 치과는 이제 가족대리고 여기만 올예정... 왠만하면 리뷰안남기는데 ... 최곱니다.갑작스런 예약시간 변경도 다 이해주시고 ...(고통이 어떨지아시니 도와주신듯??) 굿입니다...주차는 길목이 협소하나 자리는 늘 있더라구요... 너무 큰차는 들어오지 마시고 근처에 대셔야할듯?",
           tags: ["친절", "발치", "통증"],
-          link: "https://place.map.kakao.com/1126433156#review",
+          onClick: () => {
+            alert("카카오맵의 리뷰 탭으로 이동합니다.");
+            // window.open("https://place.map.kakao.com/1126433156#review", "_blank");
+          },
         },
         {
           type: "naver",
@@ -238,14 +264,20 @@ const MainContainer = () => {
           reviewText:
             "치과 여기저기 다 다녀봤는데 요기만큼 친절하시고 안아프게 해주시는 곳 없어용ㅋ_ㅋ 치과 너무 무서워 하는데 가본 곳 중에서는 여기가 체고에여 오느른 스켈링 하고 가는데 또 1년 후에 방문할게용 최고 최고👍🏻",
           tags: ["친절", "스케일링", "후련함"],
-          link: "https://naver.me/F4LXuSLA",
+          onClick: () => {
+            alert("네이버맵의 리뷰 탭으로 이동합니다.");
+            // window.open("https://naver.me/F4LXuSLA", "_blank");
+          },
         },
         {
           type: "kakao",
           nickName: "지****",
           reviewText: "최고에요!",
           tags: ["친절", "최고", "정직"],
-          link: "https://place.map.kakao.com/1126433156#review",
+          onClick: () => {
+            alert("카카오맵의 리뷰 탭으로 이동합니다.");
+            // window.open("https://place.map.kakao.com/1126433156#review", "_blank");
+          },
         },
         {
           type: "naver",
@@ -253,7 +285,10 @@ const MainContainer = () => {
           reviewText:
             "치과는 여기로 다닙니다. 곧 임플란트 예정이구요 치위생사분들 스케일링도 안아프고 깔끔하게 해주셔요. 오늘은 임플란트 수술전에 상담해주신 하유진선생님이 너무 친절하셔서 리뷰남겨요 궁금한게 많았는데 알아듣기 쉽게 딱 설명해주셔서 이해가 금방됬습니다. 원장님은 워낙 잘하셔서 말할 필요두없구요. 치과 잘해요 리뷰보시는분들 여기 가세요 내돈내산 찐 리뷰에용!!",
           tags: ["친절", "임플란트", "내돈내산"],
-          link: "https://naver.me/F4LXuSLA",
+          onClick: () => {
+            alert("네이버맵의 리뷰 탭으로 이동합니다.");
+            // window.open("https://naver.me/F4LXuSLA", "_blank");
+          },
         },
       ],
     },
@@ -320,9 +355,11 @@ const MainContainer = () => {
           icon: <HeadsetMicOutlined />,
           onClick: () => {
             if (isMobile) {
-              window.open(`tel:0507-1446-2081`, "_blank");
+              window.open(`tel:010-2041-5761`, "_blank");
+              // window.open(`tel:010-2041-5761`, "_blank");
             } else {
-              window.open(`https://pf.kakao.com/_xgyIxlT`, "_blank");
+              alert("카카오톡 채널로 이동합니다.");
+              // window.open(`https://pf.kakao.com/_xgyIxlT`, "_blank");
             }
           },
         },
@@ -330,49 +367,56 @@ const MainContainer = () => {
           title: "카카오톡",
           icon: <ChatBubbleOutlineRounded />,
           onClick: () => {
-            window.open("https://pf.kakao.com/_xgyIxlT", "_blank");
+            alert("카카오톡 채널로 이동합니다.");
+            // window.open("https://pf.kakao.com/_xgyIxlT", "_blank");
           },
         },
         {
           title: "인스타그램",
           icon: <Instagram />,
           onClick: () => {
-            window.open("https://www.instagram.com/kssdentalclinic/", "_blank");
+            alert("인스타그램으로 이동합니다.");
+            // window.open("https://www.instagram.com/kssdentalclinic/", "_blank");
           },
         },
         {
           title: "네이버 블로그",
           icon: <HistoryEduRounded />,
           onClick: () => {
-            window.open("https://blog.naver.com/dentkim86", "_blank");
+            alert("네이버 블로그로 이동합니다.");
+            // window.open("https://blog.naver.com/dentkim86", "_blank");
           },
         },
         {
           title: "리뷰",
           icon: <RateReviewOutlined />,
           onClick: () => {
-            window.open("https://naver.me/F4LXuSLA", "_blank");
+            alert("네이버맵의 리뷰 탭으로 이동합니다.");
+            // window.open("https://naver.me/F4LXuSLA", "_blank");
           },
         },
         {
           title: "사진",
           icon: <ImageOutlined />,
           onClick: () => {
-            window.open("https://naver.me/5V8TXT6L", "_blank");
+            alert("네이버맵의 사진 탭으로 이동합니다.");
+            // window.open("https://naver.me/5V8TXT6L", "_blank");
           },
         },
         {
           title: "위치",
           icon: <MapOutlined />,
           onClick: () => {
-            window.open("https://naver.me/502jSHj5", "_blank");
+            alert("네이버맵의 위치 탭으로 이동합니다.");
+            // window.open("https://naver.me/502jSHj5", "_blank");
           },
         },
         {
           title: "길찾기",
           icon: <NavigationOutlined />,
           onClick: () => {
-            window.open("https://naver.me/xCtrNIDW", "_blank");
+            alert("네이버맵의 길찾기 탭으로 이동합니다.");
+            // window.open("https://naver.me/xCtrNIDW", "_blank");
           },
         },
       ],

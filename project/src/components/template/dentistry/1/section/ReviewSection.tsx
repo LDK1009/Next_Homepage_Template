@@ -11,7 +11,7 @@ export type ReviewSectionPropsType = {
     nickName: string;
     reviewText: string;
     tags: string[];
-    link?: string;
+    onClick?: () => void;
   }[];
 };
 
